@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 //此模块用于记录用户输入的答案
 public class WriteAns {
-    public static int[] write_Ans(short[][] qus){
+    public static int[] write_Ans(){
         int[] inans=new int[NUM];
         System.out.println("请输入答案：");
         for (int i = 0; i < NUM; i++) {

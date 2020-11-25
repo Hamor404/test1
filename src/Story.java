@@ -1,5 +1,7 @@
 
 import static context.NUM.NUM;
+
+import equation.Equation;
 import generateEquations.GenerateEquations;
 import printHeader.PrintHeader;
 import printExercuise.PrintExercuise;
@@ -14,9 +16,9 @@ public class Story {
         Scanner in=new Scanner(System.in);
         NUM=in.nextInt();
         PrintHeader.print_Header();
-        short[] ov = GenerateEquations.generate_Equations();
-        short[][] qus= PrintExercuise.print_Exercuise(ov);
-        int[] inans= WriteAns.write_Ans(qus);
-        PrintCalculation.print_Calculations(qus,inans);
+        Equation[] equations1 = GenerateEquations.generate_Equations();
+        Equation[] equations2= PrintExercuise.print_Exercuise(equations1);
+        int[] inans= WriteAns.write_Ans();
+        PrintCalculation.print_Calculations(equations2,inans);
     }
 }
