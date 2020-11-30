@@ -1,24 +1,30 @@
 
 import static context.NUM.NUM;
 
+import equation.AdditionEquations;
 import equation.Equation;
-import generateEquations.GenerateEquations;
+import exercise.Exercise;
 import printHeader.PrintHeader;
-import printExercuise.PrintExercuise;
-import printCalculations.PrintCalculation;
 import writeAns.WriteAns;
-import java.util.Scanner;
+
 
 //主函数
 public class Story {
     public static void main(String[] args){
-        System.out.println("请输入题目的数量：");
-        Scanner in=new Scanner(System.in);
-        NUM=in.nextInt();
-        PrintHeader.print_Header();
-        Equation[] equations1 = GenerateEquations.generate_Equations();
-        Equation[] equations2= PrintExercuise.print_Exercuise(equations1);
+        int select;
+        Exercise exercise=new Exercise();
+        Equation[] equation=new AdditionEquations[NUM];
+        select=PrintHeader.print_Header();
+        switch (select){
+            case 1:equation=exercise.gernAddequation(NUM);
+            break;
+            case 2:equation=exercise.gernSubequation(NUM);
+            break;
+            case 3:equation=exercise.gernequatExercise(NUM);
+            break;
+        }
+        exercise.print_Exercuise(equation);
         int[] inans= WriteAns.write_Ans();
-        PrintCalculation.print_Calculations(equations2,inans);
+        exercise.print_Calculations(equation,inans);
     }
 }
