@@ -1,5 +1,5 @@
 package context;
 
 public class NUM {
-    public static int NUM=50;
+    public static int NUM=5;
 }

@@ -99,7 +99,7 @@ public class Exercise {
                 sequation.setOperator(equations[nums].getOperator());
                 equations[nums].setAnswer(sequation.Calculation());
             }
-            if (equations[nums].getAnswer() >= 0 && equations[nums].getAnswer() <= 100) {
+            if (equations[nums].getAnswer() >=0 && equations[nums].getAnswer() <=100) {
                 nums++;
             }
             //用于确保没有重复的算式
@@ -114,34 +114,34 @@ public class Exercise {
         }
         return equations;
     }
-    public void print_Exercuise(Equation[] equations){
+    public void print_Exercuise(Equation[] equations ,int n){
         char o;
         int j=0;
         for (int i=0;i< NUM;i++ ){
-            if(equations[i].getOperator()==1){
+            if(equations[NUM*n+i].getOperator()==1){
                 o='+';
             }else {
                 o='-';
             }
-            if(j%4==0) {
+            if(j%6==0) {
                 System.out.println();
             }
-            System.out.print("" + (i + 1) + ":\t" + equations[i].getFirst() + o + equations[i].getSecond() + "=\t");
+            System.out.print("" + (i + 1) + ":\t" + equations[NUM*n+i].getFirst() + o + equations[NUM*n+i].getSecond() + "=\t");
             j++;
         }
         System.out.println();
     }
-    public void print_Calculations(Equation[] equation,int[] inans){
-        int i,j=0;
+    public void print_Calculations(Equation[] exercises,int[] inans,int n){
+        int i,j=0,grade=0;
         //判断对错
         for ( i = 0; i < NUM; i++) {
-            if(equation[i].ChkAnswer(inans[i])){
+            if(exercises[n*NUM+i].ChkAnswer(inans[n*NUM+i])){
                 System.out.print(""+"正确"+"\t\t");
             }else {
                 System.out.print(""+"错误"+"\t\t");
             }
             j++;
-            if (j%4==0){
+            if (j%6==0){
                 System.out.println();
             }
         }
@@ -150,9 +150,9 @@ public class Exercise {
         System.out.println("下面是习题的参考答案:");
         j=0;
         for (i = 0; i <NUM; i++) {
-            System.out.print(""+(i+1)+":"+ equation[i].getAnswer()+"\t");
+            System.out.print(""+(i+1)+":"+ exercises[n*NUM+i].getAnswer()+"\t");
             j++;
-            if (j%4==0){
+            if (j%6==0){
                 System.out.println();
             }
         }

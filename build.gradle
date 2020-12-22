@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+}
+
+group 'hamor'
+version '1.0'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    // maven 本地缓存仓库
+    // 默认优先从此仓库查找
+    mavenLocal()
+    // 此部分为阿里的 maven 镜像，用于提升国内访问速度
+    // 如果此依赖库在使用中出现问题，请注释使用「原库」
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/google/' }
+    maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+    maven { url 'https://maven.aliyun.com/repository/spring/' }
+    maven { url 'https://maven.aliyun.com/repository/spring-plugin/' }
+    maven { url 'https://maven.aliyun.com/repository/grails-core/' }
+    maven { url 'https://maven.aliyun.com/repository/apache-snapshots/' }
+    // maven 中央库
+    mavenCentral()
+}
+
+jar {
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes 'Main-Class': 'main.Story'
+    }
+}
+
+dependencies {
+    // 测试依赖
+    implementation 'org.jetbrains:annotations:19.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    // 日志依赖
+    compile 'org.slf4j:slf4j-api:1.7.30'
+    compile 'ch.qos.logback:logback-core:1.2.3'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+}
+
+test {
+    useJUnitPlatform()
+}

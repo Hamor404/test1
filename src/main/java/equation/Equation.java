@@ -48,6 +48,7 @@ public  abstract class Equation {
     public void setAnswer(int answer){
         this.answer=answer;
     }
+
     public void gernEquat(short oper){
         Random random = new Random();
         this.setOperator(oper);
@@ -64,9 +65,9 @@ public  abstract class Equation {
     @Override
     public String toString(){
         if (operator==1){
-            return first+" + "+second+" = ";
+            return first+"+"+second+"="+answer;
         }else{
-            return first+" - "+second+" = ";
+            return first+"-"+second+"="+answer;
         }
     }
 
