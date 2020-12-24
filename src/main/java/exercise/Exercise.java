@@ -157,4 +157,7 @@ public class Exercise {
             }
         }
     }
+    public Equation getequation(Equation[] equations,int i){
+        return equations[i];
+    }
 }

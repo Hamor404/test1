@@ -65,9 +65,9 @@ public  abstract class Equation {
     @Override
     public String toString(){
         if (operator==1){
-            return first+"+"+second+"="+answer;
+            return first+"+"+second+"=";
         }else{
-            return first+"-"+second+"="+answer;
+            return first+"-"+second+"=";
         }
     }
 
